@@ -25,9 +25,12 @@ def find_entity_context():
             user = data["user"]
             # print(req_entities)
             interactions = get_last_thread(user)
-            # print(interactions)
-            found_entities = get_entities(interactions["interactions"], req_entities)
+            if len(interactions["interactions"]) > 0 and "interactions" in interactions:
+                # print(interactions)
+                found_entities = get_entities(interactions["interactions"], req_entities)
             # print(found_entities)
+            else:
+                found_entities = []
         else:
             found_entities = []
         return {"entities": found_entities}
