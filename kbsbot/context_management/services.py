@@ -2,8 +2,8 @@ from requests import Session
 import requests
 import os
 
-# CHANNEL_HANDLER = os.environ.get('CHANNEL_HANDLER')
-CHANNEL_HANDLER = "http://127.0.0.1:5005"
+CHANNEL_HANDLER = os.environ.get('CHANNEL_HANDLER')
+# CHANNEL_HANDLER = "http://127.0.0.1:5005"
 
 session = Session()
 session.trust_env = False
@@ -14,7 +14,10 @@ session.headers["Content-Type"] = "application/json"
 
 def get_last_thread(user):
     """
+    This methods retrieves users last conversation thread
 
+    Args:
+            :param  user: id of the user to be retrieved.
 
     """
     url = CHANNEL_HANDLER + "/thread/last"

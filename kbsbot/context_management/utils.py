@@ -1,4 +1,13 @@
 def get_entities(interactions, req_entities):
+    """
+    This method looks for entities in the different interactions.
+
+    Args:
+            :param interactions: A list of all of users last thread
+
+            :param req_entities: A list of required entities
+
+    """
     entities = []
     missing_entities = len(req_entities)
 
