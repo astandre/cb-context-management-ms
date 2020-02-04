@@ -12,7 +12,7 @@ def get_entities(interactions, req_entities):
     missing_entities = len(req_entities)
 
     for inter in interactions:
-        if bool(inter["output"]):
+        if "output" in inter and bool(inter["output"]):
             # print(inter["output"]["context"]["entities"])
             for entity in inter["output"]["context"]["entities"]:
                 print(entity)
