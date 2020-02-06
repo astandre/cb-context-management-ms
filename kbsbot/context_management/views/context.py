@@ -48,7 +48,6 @@ def find_entity_context():
 
         result["entities"] = found_entities
         logger.info("<<<<<< OUTPUT  %s", result)
-
         return result
     else:
         return {"message": "Must provide required entities and user id"}

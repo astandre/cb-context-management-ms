@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 from kbsbot.context_management import __version__
 
 setup(name='context_management',
-      description="",
+      description="This microservices looks in a users conversation thread in order to get entities or intents",
       long_description=open('README.rst').read(),
       version=__version__,
       packages=find_packages(),
