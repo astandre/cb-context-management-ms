@@ -1,6 +1,6 @@
 from flakon import JsonBlueprint
 from flask import request
-from kbsbot.context_management.services import *
+from kbsbot.context_management.mongo import *
 from kbsbot.context_management.utils import *
 import logging
 
@@ -30,22 +30,22 @@ def find_entity_context():
         # print(data)
         req_entities = data["entities"]
         if len(req_entities) > 0:
-            user = data["user"]
+            # user = data["user"]
             # print(req_entities)
-            interactions = get_last_thread(user)
-            logger.info("Interactions %s", interactions)
-            result["agent"] = interactions["agent"]
-            result["channel"] = interactions["channel"]
-            result["user"] = interactions["user"]
-            if len(interactions["interactions"]) > 0 and "interactions" in interactions:
+            user = data["user"]
+            local_inter = get_last_thread(user)
+            logger.info("Interactions %s", local_inter)
+            if len(local_inter["interactions"]) > 0 and "interactions" in local_inter:
                 # print(interactions)
-                found_entities = get_entities(interactions["interactions"], req_entities)
+                found_entities = get_entities(local_inter["interactions"], req_entities)
             # print(found_entities)
             else:
                 found_entities = []
         else:
             found_entities = []
-
+        result["agent"] = data["agent"]
+        result["channel"] = data["channel"]
+        result["user"] = data["user"]
         result["entities"] = found_entities
         logger.info("<<<<<< OUTPUT  %s", result)
         return result

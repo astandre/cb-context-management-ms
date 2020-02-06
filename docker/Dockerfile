@@ -9,7 +9,6 @@ COPY . /app
 RUN pip install -r /app/requirements.txt
 RUN pip install /app/
 
-ENV CHANNEL_HANDLER="http://172.28.1.5:8005"
 
 WORKDIR /app/kbsbot/context_management
 EXPOSE 8006

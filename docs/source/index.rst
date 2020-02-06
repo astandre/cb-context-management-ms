@@ -5,8 +5,8 @@ Context  Management
    :maxdepth: 2
 
    api
-   services
    utils
+   mongo
 
 Check also the TODO lis for this project:
 
