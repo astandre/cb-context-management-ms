@@ -20,11 +20,10 @@ def get_last_thread(user):
     last_interactions_list = []
     try:
         last_parent_interaction = \
-            interactions.find({"user": user["id"], "social_network": user["channel_id"], "parent": None},
+            interactions.find({"user": user["id"], "parent": None},
                               sort=[('_id', DESCENDING)])[0]
         superior_interactions = interactions.find(
-            {"user": user["id"], "social_network": user["channel_id"],
-             "date": {"$gte": last_parent_interaction["date"]}}, sort=[('_id', ASCENDING)])
+            {"user": user["id"], "date": {"$gte": last_parent_interaction["date"]}}, sort=[('_id', ASCENDING)])
 
         for inter in superior_interactions:
             del inter["_id"]
