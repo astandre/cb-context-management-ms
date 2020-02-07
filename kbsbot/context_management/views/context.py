@@ -43,7 +43,6 @@ def find_entity_context():
                 found_entities = []
         else:
             found_entities = []
-        result["channel"] = data["channel"]
         result["user"] = data["user"]
         result["entities"] = found_entities
         logger.info("<<<<<< OUTPUT  %s", result)
