@@ -35,9 +35,9 @@ def find_entity_context():
             user = data["user"]
             local_inter = get_last_thread(user)
             logger.info("Interactions %s", local_inter)
-            if len(local_inter["interactions"]) > 0 and "interactions" in local_inter:
+            if len(local_inter) > 0:
                 # print(interactions)
-                found_entities = get_entities(local_inter["interactions"], req_entities)
+                found_entities = get_entities(local_inter, req_entities)
             # print(found_entities)
             else:
                 found_entities = []
