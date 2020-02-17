@@ -12,6 +12,11 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 logger = logging.getLogger(__name__)
 
 
+@context.route('/status', methods=["GET"])
+def get_status():
+    return {"message": "ok"}
+
+
 @context.route('/context/entities')
 def find_entity_context():
     """
